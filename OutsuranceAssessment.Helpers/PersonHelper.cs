@@ -20,7 +20,7 @@ namespace OutsuranceAssessment.Helpers
             _utilities = new Utilities();
         }
 
-        public PersonHelper(Utilities utilities)
+        public PersonHelper(IUtilities utilities)
         {
             _utilities = utilities;
         }

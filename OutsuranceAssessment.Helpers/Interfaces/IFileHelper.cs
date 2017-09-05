@@ -9,6 +9,7 @@ namespace OutsuranceAssessment.Helpers.Interfaces
 {
     public interface IFileHelper
     {
+        bool CheckFileExists(string fileName);
         Task<List<Person>> ReadCsvAsync(string fileName);
         void WriteCsv<T>(List<T> items, string fileName);
     }

@@ -9,7 +9,7 @@ namespace OutsuranceAssessment.Helpers
 {
     public class Utilities : IUtilities
     {
-        public virtual string GetArrayItem(string[] person, int index)
+        public string GetArrayItem(string[] person, int index)
         {
             if (index < 0)
             {

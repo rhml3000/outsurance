@@ -26,33 +26,50 @@ namespace OutsuranceAssessment
             _fileHelper = new FileHelper();
         }
 
+        public ProgramTask(IPersonHelper personHelper, IFileHelper fileHelper)
+        {
+            _personHelper = personHelper;
+            _fileHelper = fileHelper;
+        }
 
-        public async Task MainAsync(string[] args)
+
+        public void Run(string[] args)
         {
             if (args.Length == 0)
             {
-                Console.WriteLine("No input file specified");
-                return;
+                throw new ArgumentException("No input file specified");
             }
 
             _inputFileName = args[0];
-            if (!System.IO.File.Exists(_inputFileName))
+            if (!_fileHelper.CheckFileExists(_inputFileName))
             {
-                Console.WriteLine("Specified input file not found!");
-                return;
+                throw new ArgumentException("Specified input file not found!");
             }
 
             _outputNameStatsFilename = args.Length > 1 ? args[1] : "nameStats.csv";
             _outputAddressStatsFilename = args.Length > 2 ? args[2] : "addressStats.csv";
 
-            var people = await _fileHelper.ReadCsvAsync(_inputFileName);
-
-            var names = _personHelper.GetPersonNames(people);
-            _fileHelper.WriteCsv(names, _outputNameStatsFilename);
-
-            var addresses = _personHelper.GetPersonAddresses(people);            
-            _fileHelper.WriteCsv(addresses, _outputAddressStatsFilename);
+            var people = _fileHelper.ReadCsvAsync(_inputFileName).Result;
+            
+            _fileHelper.WriteCsv(_personHelper.GetPersonNames(people), _outputNameStatsFilename);
+            
+            _fileHelper.WriteCsv(_personHelper.GetPersonAddresses(people), _outputAddressStatsFilename);
             return;
+        }
+
+        public string GetInputFileName()
+        {
+            return _inputFileName;
+        }
+
+        public string GetNamesFilename()
+        {
+            return _outputNameStatsFilename;
+        }
+
+        public string GetAddressFilename()
+        {
+            return _outputAddressStatsFilename;
         }
     }
 }

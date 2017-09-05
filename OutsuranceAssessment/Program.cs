@@ -18,7 +18,14 @@ namespace OutsuranceAssessment
         
         static void Main(string[] args)
         {
-            new ProgramTask().MainAsync(args).Wait();            
+            try
+            {
+                new ProgramTask().Run(args);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }        
 
     }
