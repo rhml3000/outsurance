@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{782ACAC1-326D-44CE-868D-C6F664AE2523}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{0CAEFDD8-1959-46A0-9031-9CC025CAC8B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OutsuranceAssessment</RootNamespace>
-    <AssemblyName>OutsuranceAssessment</AssemblyName>
+    <RootNamespace>OutsuranceAssessment.Models</RootNamespace>
+    <AssemblyName>OutsuranceAssessment.Models</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,25 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="PersonAddress.cs" />
+    <Compile Include="PersonName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProgramTask.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="SampleInput.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\OutsuranceAssessment.Helpers\OutsuranceAssessment.Helpers.csproj">
-      <Project>{0e50639e-d278-4306-8ec2-23ec00f45d80}</Project>
-      <Name>OutsuranceAssessment.Helpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OutsuranceAssessment.Models\OutsuranceAssessment.Models.csproj">
-      <Project>{0caefdd8-1959-46a0-9031-9cc025cac8b2}</Project>
-      <Name>OutsuranceAssessment.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
