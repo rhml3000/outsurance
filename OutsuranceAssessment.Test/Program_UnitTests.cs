@@ -33,7 +33,7 @@ namespace OutsuranceAssessment.Test
             string[] args, string expectedInputFilename, string expectedPersonFilename, string expectedAddressFilename)
         {
             
-            _programTask.MainAsync(args);
+            _programTask.Run(args);
             Assert.That(expectedInputFilename, Is.EqualTo(_programTask.GetInputFileName()));
             Assert.That(expectedPersonFilename, Is.EqualTo(_programTask.GetNamesFilename()));
             Assert.That(expectedAddressFilename, Is.EqualTo(_programTask.GetAddressFilename()));
@@ -42,7 +42,7 @@ namespace OutsuranceAssessment.Test
         [Test]
         public void ProgramTask_NoArgs_ThrowsArgumentException()
         {
-            Assert.Throws<ArgumentException>(() => _programTask.MainAsync(new string[] { }));
+            Assert.Throws<ArgumentException>(() => _programTask.Run(new string[] { }));
         }
     }
 
@@ -60,7 +60,7 @@ namespace OutsuranceAssessment.Test
 
             var programTask = new ProgramTask(personHelperMock.Object, fileHelperMock.Object);
 
-            Assert.Throws<ArgumentException>(() => programTask.MainAsync(args));
+            Assert.Throws<ArgumentException>(() => programTask.Run(args));
         }
     }
 }

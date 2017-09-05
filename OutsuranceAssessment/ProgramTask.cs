@@ -33,7 +33,7 @@ namespace OutsuranceAssessment
         }
 
 
-        public void MainAsync(string[] args)
+        public void Run(string[] args)
         {
             if (args.Length == 0)
             {

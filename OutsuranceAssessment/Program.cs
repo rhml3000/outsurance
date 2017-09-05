@@ -20,7 +20,7 @@ namespace OutsuranceAssessment
         {
             try
             {
-                new ProgramTask().MainAsync(args);
+                new ProgramTask().Run(args);
             }
             catch (Exception e)
             {
