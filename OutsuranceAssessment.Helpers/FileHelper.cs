@@ -19,6 +19,11 @@ namespace OutsuranceAssessment.Helpers
             _personHelper = new PersonHelper();
         }
 
+        public bool CheckFileExists(string fileName)
+        {
+            return System.IO.File.Exists(fileName);
+        }
+
         public async Task<List<Person>> ReadCsvAsync(string fileName)
         {
             var result = new List<Person>();

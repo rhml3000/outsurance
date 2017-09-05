@@ -75,9 +75,9 @@ namespace OutsuranceAssessment.Test
         }
 
         [Test]
-        public void CreatePerson_Calls_GetPersonItem()
+        public void CreatePerson_Calls_GetArrayItem()
         {
-            Mock<Utilities> mockUtilities = new Mock<Utilities>();
+            var mockUtilities = new Mock<IUtilities>();
             var personHelper = new PersonHelper(mockUtilities.Object);            
             var person = personHelper.CreatePerson(SampleArray1);
             mockUtilities.Verify(m => m.GetArrayItem(SampleArray1, It.IsAny<int>()), Times.Exactly(3));
