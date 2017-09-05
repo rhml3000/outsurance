@@ -92,20 +92,17 @@ namespace OutsuranceAssessment.Test
             expectedResult.Add(new PersonName
             {
                 Name = "Lawrence",
-                Count = 2,
-                Type = "ln"
+                Count = 2
             });
             expectedResult.Add(new PersonName
             {
                 Name = "Christina",
-                Count = 1,
-                Type = "fn"
+                Count = 1
             });
             expectedResult.Add(new PersonName
             {
                 Name = "Reuel",
-                Count = 1,
-                Type = "fn"
+                Count = 1
             });
 
             Assert.That(expectedResult, NUnit.DeepObjectCompare.Is.DeepEqualTo(actualResult));

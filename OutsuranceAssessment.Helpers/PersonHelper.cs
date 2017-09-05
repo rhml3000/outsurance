@@ -37,10 +37,10 @@ namespace OutsuranceAssessment.Helpers
 
         public List<PersonName> GetPersonNames(List<Person> people)
         {
-            var names = people.Select(x => new PersonName { Name = x.FirstName, Type = "fn", Count = 1 })
-                .Concat(people.Select(y => new PersonName { Name = y.LastName, Type = "ln", Count = 1 }))
+            var names = people.Select(x => new PersonName { Name = x.FirstName,  Count = 1 })
+                .Concat(people.Select(y => new PersonName { Name = y.LastName, Count = 1 }))
                 .GroupBy(a => a.Name)
-                .Select(b => new PersonName { Name = b.First().Name, Type = b.First().Type, Count = b.Sum(c => c.Count) })
+                .Select(b => new PersonName { Name = b.First().Name, Count = b.Sum(c => c.Count) })
                 .OrderByDescending(o1 => o1.Count)
                 .ThenBy(o2 => o2.Name)
                 .ToList();
